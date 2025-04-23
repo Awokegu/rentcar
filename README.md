@@ -16,13 +16,13 @@ This is a car rental project developed for the graduation Project. It is built u
 
 ## Interfaces:
 
-- User
+- login as User
 
 ![Alt text](public/user_interface.gif)
 
-- Admin
+- login as Admin
 
-![Alt text](public/admin_interface.gif)
+![Alt text](public/admin_iinterface.gif)
 
 
 
