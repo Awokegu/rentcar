@@ -18,7 +18,7 @@ This is a car rental project developed for the graduation Project. It is built u
 
 - login as User
 
-![Alt text](public/user_interface.gif)
+![Alt text](public/user_iinterface.gif)
 
 - login as Admin
 
