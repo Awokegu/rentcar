@@ -9,65 +9,81 @@
     </div>
     <div class="flex md:flex-row flex-col justify-between max-w-screen-xl md:px-16 px-8 mx-auto gap-12 ">
         <div class="md:w-1/2 order-last md:order-first mb-12 ">
-            <form action="#" class="space-y-8" id="contact-form">
-                <div class="flex justify-between">
-                    <div class="w-full mr-5">
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">First
-                            Name</label>
-                        <input type="text" id="first-name"
-                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                            placeholder="Awoke" required>
-                    </div>
+        @if (session('success'))
+    <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg" role="alert">
+        {{ session('success') }}
+    </div>
+@endif
 
-                    <div class="w-full ">
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Last
-                            Name</label>
-                        <input type="text" id="last-name"
-                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                            placeholder="Guadie" required>
-                    </div>
-                </div>
-                <div class="flex justify-between">
-                    <div class="w-full mr-5">
-                        <label for="email"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email</label>
-                        <input type="email" id="email"
-                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                            placeholder="awoke881sebat@gmail.com" required>
-                    </div>
+@if ($errors->any())
+    <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg" role="alert">
+        <ul class="list-disc pl-5">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
-                    <div class="w-full ">
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Phone
-                            Number</label>
-                        <input type="tel" id="phone"
-                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                            placeholder="+251930950562" required>
-                    </div>
-                </div>
-                <div>
-                    <label for="subject"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Subject</label>
-                    <select name="subject" id="subject"
-                        class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light">
-                        <option value="0" disabled selected>Select subject</option>
-                        <option value="reservation">reservation</option>
-                        <option value="payment">payment</option>
-                        <option value="car problem">car problem</option>
-                        <option value="cancelation">cancelation</option>
-                        <option value="other">other</option>
-                    </select>
-                </div>
-                <div class="sm:col-span-2">
-                    <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your
-                        message</label>
-                    <textarea id="message" rows="6"
-                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="Leave a comment..."></textarea>
-                </div>
-                <button type="submit"
-                    class="p-3 mb-16 font-bold border rounded-md border-pr-400 text-pr-400 hover:text-white hover:bg-pr-400">Send
-                    message</button>
-            </form>
+<form action="{{ route('contact.submit') }}" method="POST">
+    @csrf
+
+    <div class="flex justify-between">
+        <div class="w-full mr-5">
+            <label for="first-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">First Name</label>
+            <input type="text" id="first-name" name="first_name"
+                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                placeholder="Awoke" required>
+        </div>
+
+        <div class="w-full">
+            <label for="last-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Last Name</label>
+            <input type="text" id="last-name" name="last_name"
+                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                placeholder="Guadie" required>
+        </div>
+    </div>
+
+    <div class="flex justify-between">
+        <div class="w-full mr-5">
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email</label>
+            <input type="email" id="email" name="email"
+                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                placeholder="awoke881sebat@gmail.com" required>
+        </div>
+
+        <div class="w-full">
+            <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Phone Number</label>
+            <input type="tel" id="phone" name="phone"
+                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                placeholder="+251930950562" required>
+        </div>
+    </div>
+
+    <div>
+        <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Subject</label>
+        <select name="subject" id="subject"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light">
+            <option value="0" disabled selected>Select subject</option>
+            <option value="reservation">Reservation</option>
+            <option value="payment">Payment</option>
+            <option value="car problem">Car Problem</option>
+            <option value="cancelation">Cancelation</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
+
+    <div class="sm:col-span-2">
+        <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your Message</label>
+        <textarea id="message" name="message" rows="6"
+            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+            placeholder="Leave a comment..." required></textarea>
+    </div>
+
+    <button type="submit"
+        class="p-3 mb-16 font-bold border rounded-md border-pr-400 text-pr-400 hover:text-white hover:bg-pr-400">Send
+        message</button>
+</form>      
         </div>
         <div class="grid mx-auto text-center gap-4 ">
             <div>

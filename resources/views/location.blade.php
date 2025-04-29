@@ -38,7 +38,7 @@
         </div>
         <div class=" p-3 mb-8">
             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.6490522748086!2d38.80713341100035!3d9.004403789335347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b853a75e5441d%3A0xcdee69682c57ed1f!2sGerji(Mebrat%20Hail)%20Electric%20Power%20Station%2C%20Addis%20Ababa!5e0!3m2!1sen!2set!4v1745399625433!5m2!1sen!2set"
+             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.640295875017!2d38.80640191103327!3d9.005207191017897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b853a19d26bbb%3A0xafbe8a541da37eaf!2sAlem%20Gebre%20Building%2C%20Ring%20Rd%2C%20Addis%20Ababa!5e0!3m2!1sen!2set!4v1745478346048!5m2!1sen!2set"
                 class="w-full h-96" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>

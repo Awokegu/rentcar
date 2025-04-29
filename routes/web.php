@@ -14,7 +14,7 @@ use App\Http\Controllers\carSearchController;
 use App\Models\User;
 use App\Models\Car;
 use App\Models\Reservation;
-
+use App\Http\Controllers\ContactController;
 
 // ------------------- guest routes --------------------------------------- //
 Route::get('/', function () {
@@ -86,11 +86,15 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     // Route::delete('/deleteUser/{user}', [usersController::class, 'destroy'])->name('deleteUser');
 
     Route::get('/userDetails/{user}', [usersController::class, 'show'])->name('userDetails');
+
+   
 });
 
 // --------------------------------------------------------------------------//
+// ------------------- client messages --------------------------------------- //
 
-
+Route::get('/admin/messages', [ContactController::class, 'index'])->name('messages.index');
+Route::post('/contact/submit', [ContactController::class, 'submit'])->name('contact.submit');
 
 
 // ------------------- client routes --------------------------------------- //

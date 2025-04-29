@@ -7,19 +7,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'RealRentCar') }}</title>
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}?v=2">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('favicon.png') }}?v=2">
+
+
+    {{-- Bootstrap CSS --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
     {{-- jquery --}}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     {{-- sweet alert --}}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    {{-- Bootstrap Bundle JS --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
     @include('flatpickr::components.style')
+
+    {{-- Your Vite compiled CSS and JS --}}
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
+
     <style>
         html {
             scroll-behavior: smooth;
         }
     </style>
 </head>
+
 
 <body class="bg-sec-400">
 
@@ -30,7 +46,7 @@
                 <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl drop-shadow-2xl">
                     {{-- LOGO --}}
                     <a href="{{ route('home') }}" class="flex items-center">
-                        <img loading="lazy" src="/images/logos/LOGOtext.png" class="mr-3 h-12" alt="Flowbite Logo" />
+                        <img loading="lazy" src="/images/logos/LOGOtext.jpg" class="mr-3 h-12" alt="Flowbite Logo" />
                     </a>
 
                     {{-- login & Register buttons --}}
@@ -123,7 +139,7 @@
                 <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                     {{-- LOGO --}}
                     <a href="{{ route('home') }}" class="flex items-center">
-                        <img loading="lazy" src="/images/logos/LOGOtext.png" class="mr-3 h-12" alt="Flowbite Logo" />
+                        <img loading="lazy" src="/images/logos/LOGOtext.jpg" class="mr-3 h-12" alt="Flowbite Logo" />
                     </a>
 
                     {{-- Dropdown button --}}
@@ -156,6 +172,15 @@
                                     <a href="{{ route('users') }}">
                                         <div class="group text-center">
                                             <div class="group-hover:cursor-pointer">USERS</div>
+                                            <div
+                                                class="block invisible bg-pr-400 w-10 h-1 rounded-md text-center -bottom-1 mx-auto relative group-hover:visible">
+                                            </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('messages.index') }}">
+                                        <div class="group text-center">
+                                            <div class="group-hover:cursor-pointer">MESSAGES</div>
                                             <div
                                                 class="block invisible bg-pr-400 w-10 h-1 rounded-md text-center -bottom-1 mx-auto relative group-hover:visible">
                                             </div>
@@ -238,7 +263,7 @@
                                 <li>
                                     <a href="/contact_us">
                                         <div class="group text-center">
-                                            <div class="group-hover:cursor-pointer">Contact Us</div>
+                                            <div class="group-hover:cursor-pointer">CONTACT US</div>
                                             <div
                                                 class="block invisible bg-pr-400 w-20 h-1 rounded-md text-center -bottom-1 mx-auto relative group-hover:visible">
                                             </div>
@@ -326,7 +351,7 @@
                 <div class="md:flex md:justify-between">
                     <div class="mb-12 md:mb-0 flex justify-center ">
                         <a href="" class="flex items-center">
-                            <img loading="lazy" src="/images/logos/LogoTextDark.png" class="mr-3 h-24"
+                            <img loading="lazy" src="/images/logos/LOGOtext.jpg" class="mr-3 h-24"
                                 alt="Logo" />
                         </a>
                     </div>
