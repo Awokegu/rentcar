@@ -15,6 +15,7 @@ use App\Models\User;
 use App\Models\Car;
 use App\Models\Reservation;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProfileController;
 
 // ------------------- guest routes --------------------------------------- //
 Route::get('/', function () {
@@ -92,9 +93,21 @@ Route::prefix('admin')->middleware('admin')->group(function () {
 
 // --------------------------------------------------------------------------//
 // ------------------- client messages --------------------------------------- //
+// routes/web.php
 
+Route::get('/admin/contact-messages', [adminDashboardController::class, 'showContactMessages'])->name('admin.contactMessages');
+Route::delete('/admin/contact-messages/{id}', [adminDashboardController::class, 'destroy'])->name('admin.contactMessages.destroy');
 Route::get('/admin/messages', [ContactController::class, 'index'])->name('messages.index');
 Route::post('/contact/submit', [ContactController::class, 'submit'])->name('contact.submit');
+
+// ------------------- profile update --------------------------------------- //
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile/password', [ProfileController::class, 'editPassword'])->name('updateprofile');
+    Route::post('/profile/password', [ProfileController::class, 'updatePassword'])->name('password.update');
+});
+
+
 
 
 // ------------------- client routes --------------------------------------- //

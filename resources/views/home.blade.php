@@ -2,9 +2,7 @@
 @section('content')
     <main>
 
-
-
-        <div class="bg-sec-100 ">
+        <div class="bg-white dark:bg-gray-900 text-black dark:text-white p-6 rounded-lg ">
             {{-- hero --}}
             <div class="flex justify-center md:py-28 py-12 mx-auto max-w-screen-xl">
                 <div class="flex  flex-col justify-center md:w-3/5  mx-12 md:ms-20 md:mx-0">

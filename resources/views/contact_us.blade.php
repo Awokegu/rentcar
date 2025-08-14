@@ -9,11 +9,28 @@
     </div>
     <div class="flex md:flex-row flex-col justify-between max-w-screen-xl md:px-16 px-8 mx-auto gap-12 ">
         <div class="md:w-1/2 order-last md:order-first mb-12 ">
-        @if (session('success'))
-    <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg" role="alert">
-        {{ session('success') }}
+      <div class="flex md:flex-row flex-col justify-between max-w-screen-xl md:px-16 px-8 mx-auto gap-12 ">
+    <div class="md:w-1/2 order-last md:order-first mb-12 ">
+       @if (session('success'))
+        <div id="toast" class="fixed bottom-5 right-5 bg-green-500 text-white p-4 rounded shadow-md transition-opacity duration-300">
+            {{ session('success') }}
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const toast = document.getElementById('toast');
+                toast.classList.remove('hidden'); // Show the toast
+                setTimeout(() => {
+                    toast.classList.add('opacity-0'); // Fade out
+                    setTimeout(() => {
+                        toast.classList.add('hidden'); // Hide after fade out
+                        toast.classList.remove('opacity-0'); // Reset for next show
+                    }, 300); // Match the duration of the fade out
+                }, 3000); // Show for 3 seconds
+            });
+        </script>
+    @endif
     </div>
-@endif
+</div>
 
 @if ($errors->any())
     <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg" role="alert">

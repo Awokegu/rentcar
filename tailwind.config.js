@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 const flowbitePlugin = require("flowbite/plugin");
 const formsPlugin = require("@tailwindcss/forms");
+
 export default {
     content: [
         "./resources/**/*.blade.php",
@@ -8,6 +9,7 @@ export default {
         "./resources/**/*.vue",
         "./node_modules/flowbite/**/*.js",
     ],
+    darkMode: 'class', // ✅ Add this line
     theme: {
         extend: {
             fontFamily: {
@@ -39,6 +41,5 @@ export default {
             },
         },
     },
-    plugins: [flowbitePlugin, formsPlugin,],
+    plugins: [flowbitePlugin, formsPlugin],
 };
-
