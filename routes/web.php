@@ -100,15 +100,12 @@ Route::delete('/admin/contact-messages/{id}', [adminDashboardController::class, 
 Route::get('/admin/messages', [ContactController::class, 'index'])->name('messages.index');
 Route::post('/contact/submit', [ContactController::class, 'submit'])->name('contact.submit');
 
-// ------------------- profile update --------------------------------------- //
+// ------------------- profile update --------------------------------------- /
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile/password', [ProfileController::class, 'editPassword'])->name('updateprofile');
-    Route::post('/profile/password', [ProfileController::class, 'updatePassword'])->name('password.update');
+    Route::get('/profile/password', [ProfileController::class, 'editPassword'])->name('profile.password.edit');
+    Route::post('/profile/password', [ProfileController::class, 'updatePassword'])->name('profile.password.update');
 });
-
-
-
 
 // ------------------- client routes --------------------------------------- //
 

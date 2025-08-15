@@ -13,22 +13,31 @@ class ProfileController extends Controller
         return view('profile.change-password');
     }
 
-    public function updatePassword(Request $request)
-    {
-        $request->validate([
-            'current_password' => 'required',
-            'new_password' => 'required|min:6|confirmed',
-        ]);
+   public function updatePassword(Request $request)
+{
+    // Validate the incoming request
+    $request->validate([
+        'current_password' => 'required',
+        'new_password' => 'required|min:8|confirmed|regex:/[A-Z]/|regex:/[0-9]/',
+    ]);
 
-        $user = Auth::user();
+    //  Debugging: Display the incoming request data
+    // dd($request->all());
 
-        if (!Hash::check($request->current_password, $user->password)) {
-            return back()->withErrors(['current_password' => 'Current password is incorrect']);
-        }
+    // Get the currently authenticated user
+    $user = Auth::user();
 
-        $user->password = Hash::make($request->new_password);
-        $user->save();
-
-        return back()->with('success', 'Password updated successfully.');
+    // Check if the current password is correct
+    if (!Hash::check($request->current_password, $user->password)) {
+        return back()->withErrors(['current_password' => 'Current password is incorrect']);
     }
+
+    // Update the user's password
+    $user->password = Hash::make($request->new_password);
+    $user->save();
+    
+    // Re-login the user so session stays valid
+    Auth::login($user);
+    return back()->with('success', 'Password updated successfully.');
+}
 }

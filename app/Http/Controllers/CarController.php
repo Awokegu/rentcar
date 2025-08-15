@@ -40,7 +40,7 @@ class CarController extends Controller
             'quantity' => 'required',
             'price_per_day' => 'required',
             'status' => 'required',
-            'reduce' => 'required',
+            'reduce' => 'nullable',
             'stars' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
         ]);

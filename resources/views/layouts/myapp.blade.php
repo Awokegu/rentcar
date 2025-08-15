@@ -78,7 +78,7 @@
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">@csrf</form>
                                     </li>
                                     <li>
-                                        <a href="{{ route('updateprofile') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Update Profile</a>
+                                        <a href="{{ route('profile.password.edit') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Update Profile</a>
                                     </li>
                                     @if(auth()->user()->role === 'admin')
                                         <li>
@@ -144,13 +144,13 @@
                     </div>
 
                     <div class="grid grid-cols-3 gap-8">
-                        <div>
+                        <!-- <div>
                             <h2 class="mb-6 text-sm font-semibold uppercase text-white">Resources</h2>
                             <ul class="text-gray-400">
                                 <li class="mb-4"><a href="https://laravel.com/" target='_blank' class="hover:underline">Laravel 10.x</a></li>
                                 <li><a href="https://tailwindcss.com/" target='_blank' class="hover:underline">Tailwind CSS</a></li>
                             </ul>
-                        </div>
+                        </div> -->
                         <div>
                             <h2 class="mb-6 text-sm font-semibold uppercase text-white">Follow us</h2>
                             <ul class="text-gray-400">
@@ -248,7 +248,7 @@
             behavior: 'smooth'
         });
     }
-</script> -->
+</script> 
 @include('flatpickr::components.script')
 
 </html>
