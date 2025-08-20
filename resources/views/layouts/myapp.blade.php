@@ -16,6 +16,14 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
+            <!-- Leaflet CSS -->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-sA+Rwz0vJE1+X47nD1S3w6+7bRjVbboznp1m+zD9a8M=" crossorigin=""/>
+
+        <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-o9N1j7kZp1T/7rG3XN8mKQarM3NVp+5Xp9v+J5XYpZg=" crossorigin=""></script>
+
     @include('flatpickr::components.style')
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
@@ -118,7 +126,7 @@
                             </li>
                         @endforeach
                     </ul>
-                </div>
+                </div>     
             </div>
         </nav>
     </header>
@@ -142,7 +150,6 @@
                             <img loading="lazy" src="/images/logos/LOGOtext.jpg" class="mr-3 h-24" alt="Logo" />
                         </a>
                     </div>
-
                     <div class="grid grid-cols-3 gap-8">
                         <!-- <div>
                             <h2 class="mb-6 text-sm font-semibold uppercase text-white">Resources</h2>
@@ -167,9 +174,7 @@
                         </div>
                     </div>
                 </div>
-
                 <hr class="my-6 sm:mx-auto border-gray-700 lg:my-8" />
-
                 <div class="sm:flex sm:items-center sm:justify-between md:ms-0 pb-4 ms-32">
                     <span class="text-sm sm:text-center text-gray-400 md:ms-0 -ms-8">© 2025 <a href="https://www.linkedin.com/in/awoke-guadie/" target='_blank' class="hover:underline">Awoke.dev™</a>. All Rights Reserved.</span>
                     <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
@@ -188,11 +193,6 @@
                                 <path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
                             </svg>
                         </a>
-                        <a href="https://www.linkedin.com/in/awoke-guadie/" target='_blank' class="text-gray-500 hover:text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512">
-                                <path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
-                            </svg>
-                        </a>
                         <a href="https://www.instagram.com/Awoke/" target='_blank'
                             class="text-gray-500  hover:text-white">
                             <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -201,8 +201,6 @@
                                     clip-rule="evenodd" />
                             </svg>
                         </a>
-
-
                     </div>
                 </div>
                 <div>

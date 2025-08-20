@@ -13,16 +13,13 @@ class ProfileController extends Controller
         return view('profile.change-password');
     }
 
-   public function updatePassword(Request $request)
+  public function updatePassword(Request $request)
 {
     // Validate the incoming request
     $request->validate([
         'current_password' => 'required',
-        'new_password' => 'required|min:8|confirmed|regex:/[A-Z]/|regex:/[0-9]/',
+        'new_password' => 'required|min:6|confirmed',
     ]);
-
-    //  Debugging: Display the incoming request data
-    // dd($request->all());
 
     // Get the currently authenticated user
     $user = Auth::user();
@@ -36,8 +33,10 @@ class ProfileController extends Controller
     $user->password = Hash::make($request->new_password);
     $user->save();
     
-    // Re-login the user so session stays valid
-    Auth::login($user);
-    return back()->with('success', 'Password updated successfully.');
+    // Logout the user
+    Auth::logout();
+
+    // Redirect to login page with success message
+    return redirect()->route('login')->with('success', 'Password updated successfully. Please login with your new password.');
 }
 }

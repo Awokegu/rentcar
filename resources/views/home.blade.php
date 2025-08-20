@@ -127,7 +127,7 @@
                         class="flex justify-around md:w-1/3 text-center my-4 h-16 align-middle md:border-b-0 md:border-r-2 border-b-2 pb-4 border-white">
                         <div class="flex flex-col justify-center">
                             <h3 class="font-car font-medium text-4xl">4500 + </h3>
-                            <p class="font-car  text-lg">Satisdied Client</p>
+                            <p class="font-car  text-lg">Satisfdied Client</p>
                         </div>
                     </div>
                     <div

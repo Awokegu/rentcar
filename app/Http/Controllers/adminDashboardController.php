@@ -19,11 +19,14 @@ class adminDashboardController extends Controller
         $clients = User::where('role', 'client')->count();
         $admins = User::where('role', 'admin')->count();
         $cars = Car::all();
-        $reservations = Reservation::paginate(3);
+        $reservations = Reservation::paginate(10);
         $avatars = User::all();
 
         // Return the admin dashboard view with all necessary data
-        return view('admin.adminDashboard', compact('clients', 'avatars', 'admins', 'cars', 'reservations'));
+        $activeReservationsCount = Reservation::where('status', 'Active')->count();
+
+         return view('admin.adminDashboard', compact('clients', 'avatars', 'admins', 'cars', 'reservations', 'activeReservationsCount'));
+
     }
 
     /**

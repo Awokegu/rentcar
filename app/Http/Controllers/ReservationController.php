@@ -43,14 +43,24 @@ class ReservationController extends Controller
 
         $car = Car::find($car_id);
         $user = Auth::user();
-
+        
         $start = Carbon::parse($request->start_date);
         $end = Carbon::parse($request->end_date);
 
         // Check if the user has more than 2 reservations
-        $userReservationsCount = Reservation::where('user_id', $user->id)->count();
-        if ($userReservationsCount >= 2) {
-            return redirect()->back()->with('error', 'You cannot have more than 2 active reservations 😉.');
+       // Count ALL active reservations for this user (ignores pagination)
+       // Controller
+                $reservations = Reservation::where('user_id', $user->id)->paginate(10);
+
+                $activeReservationsCount = Reservation::where('user_id', $user->id)
+                    ->where('status', 'Active')
+                    ->count();
+
+                return view('reservations.index', compact('reservations', 'activeReservationsCount'));
+
+
+        if ($userActiveReservationsCount >= 2) {
+            return redirect()->back()->with('error', 'You cannot have more than 2 active reservations');
         }
 
         // extract start and end date from the request

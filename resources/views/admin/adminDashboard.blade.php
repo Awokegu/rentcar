@@ -30,11 +30,11 @@
                     </a>
 
                     <!-- Available Cars Card -->
-                    <a href="{{ route('cars.index') }}">
+                   <a href="{{ route('cars.index') }}">
                         <div class="flex items-center p-4 bg-white rounded-lg shadow-xs hover:bg-pr-200">
                             <div class="p-3 mr-4 bg-pr-400 rounded-full">
-                                <svg style="fill: #fff" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
-                                    <path d="..."></path> {{-- (SVG path here) --}}
+                                <svg style="fill:#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="w-5 h-5">
+                                    <path d="M544 192h-16l-48.7-97.4A64 64 0 0 0 420.1 64H219.9a64 64 0 0 0-59.2 30.6L112 192H96a96 96 0 0 0-96 96v64a32 32 0 0 0 32 32h32a64 64 0 0 0 128 0h256a64 64 0 0 0 128 0h32a32 32 0 0 0 32-32v-64a96 96 0 0 0-96-96zM171.5 118.6a32 32 0 0 1 29-14.6h200.9a32 32 0 0 1 29 18.6L465.9 192H174.1zM160 416a32 32 0 1 1 32-32 32 32 0 0 1-32 32zm320 0a32 32 0 1 1 32-32 32 32 0 0 1-32 32z"/>
                                 </svg>
                             </div>
                             <div>
@@ -46,18 +46,19 @@
                         </div>
                     </a>
 
+
                     <!-- Reservations Card -->
                     <a href="javascript:void(0);" onclick="scrollToReservations();">
                         <div class="flex items-center p-4 bg-white rounded-lg shadow-xs hover:bg-pr-200">
                             <div class="p-3 mr-4 bg-pr-400 rounded-full">
-                                <svg style="fill: #fff" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
-                                    <path d="..."></path> {{-- (SVG path here) --}}
+                                <svg style="fill:#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="w-5 h-5">
+                                    <path d="M544 192h-16l-48.7-97.4A64 64 0 0 0 420.1 64H219.9a64 64 0 0 0-59.2 30.6L112 192H96a96 96 0 0 0-96 96v64a32 32 0 0 0 32 32h32a64 64 0 0 0 128 0h256a64 64 0 0 0 128 0h32a32 32 0 0 0 32-32v-64a96 96 0 0 0-96-96zM171.5 118.6a32 32 0 0 1 29-14.6h200.9a32 32 0 0 1 29 18.6L465.9 192H174.1zM160 416a32 32 0 1 1 32-32 32 32 0 0 1-32 32zm320 0a32 32 0 1 1 32-32 32 32 0 0 1-32 32z"/>
                                 </svg>
                             </div>
                             <div>
                                 <p class="text-lg font-medium text-pr-400">Active Reservations</p>
                                 <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                    {{ $reservations->where('status', 'Active')->count() }}
+                                    {{ $activeReservationsCount }}
                                 </p>
                             </div>
                         </div>

@@ -11,7 +11,7 @@
     <style>
         @media print {
             @page {
-                size: A3;
+                size: A4;
             }
         }
 
@@ -138,6 +138,7 @@
                 <h2>Client</h2>
                 <ul>
                     <li>{{ $reservation->user->name }}</li>
+                    <li>{{ $reservation->user->email }}</li>
                     <li>{{ $reservation->user->email }}</li>
                 </ul>
             </div>

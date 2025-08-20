@@ -2,6 +2,14 @@
 @section('content')
     <div class="grid place-items-center h-screen" style="">
         <div class="border p-5 md:w-1/2 w-4/5 bg-sec-100 -mt-48">
+            @if(session('success'))
+                <div class="flex justify-center mt-4">
+                    <div class="bg-green-500 text-white px-6 py-3 rounded-lg shadow-md text-center font-medium">
+                        {{ session('success') }}
+                    </div>
+                </div>
+            @endif
+
             <form method="POST" action="{{ route('login') }}">
                 @csrf
 

@@ -148,13 +148,7 @@
                 });
             </script>
         @endif
-
-
-
     </div>
-
-
-
     <script>
         $(document).ready(function() {
             var flatpickrElement = document.getElementById('laravel-flatpickr');

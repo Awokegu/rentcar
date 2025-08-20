@@ -16,7 +16,7 @@ use App\Models\Car;
 use App\Models\Reservation;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
-
+use App\Http\Controllers\VehicleController;
 // ------------------- guest routes --------------------------------------- //
 Route::get('/', function () {
     $cars = Car::take(6)->where('status', '=', 'available')->get();
@@ -106,6 +106,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile/password', [ProfileController::class, 'editPassword'])->name('profile.password.edit');
     Route::post('/profile/password', [ProfileController::class, 'updatePassword'])->name('profile.password.update');
 });
+               //car gps
+
+Route::get('/cars/map', [VehicleController::class, 'map'])->name('vehicles.map');
 
 // ------------------- client routes --------------------------------------- //
 
