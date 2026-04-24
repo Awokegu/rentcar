@@ -29,7 +29,7 @@ This is a car rental project developed for the graduation Project. It is built u
 
 ## Installation
 
-1. Clone the repository: https://github.com/awokeguadiegu/RealRentCar
+1. Clone the repository: https://github.com/Awokegu/rentcar/tree/master
 
 ## Usage
 
