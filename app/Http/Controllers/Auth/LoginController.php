@@ -40,7 +40,6 @@ class LoginController extends Controller
         }
         return RouteServiceProvider::HOME;
     }
-
     /**
      * Create a new controller instance.
      *
